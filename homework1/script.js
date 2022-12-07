@@ -8,8 +8,8 @@ let randomDiscount = Math.floor(Math.random() * 100);
 let discountedPrice = sum - sum * (randomDiscount / 100);
 let cost = roundedSum / 2;
 
-let result = `Максимальна ціна: ${Math.min(first, second, third)} </br>
-                    Мінімальна ціна: ${Math.max(first, second, third)} </br>
+let result = `Максимальна ціна: ${Math.max(first, second, third)} </br>
+                    Мінімальна ціна: ${Math.min(first, second, third)} </br>
                     Вартість всіх товарів: ${sum}</br>
                     Сума всіх округленних вартостей: ${roundedSum} </br>
                     Сума всіх товарів округлена до 100: ${
