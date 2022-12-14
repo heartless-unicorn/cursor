@@ -56,7 +56,7 @@ function getRepeatLetters(letter, str) {
     }
   }
 }
-// function 7
+// function 7,8
 function convertCurency(str) {
   str = str.trim();
   let result = "";
@@ -72,5 +72,36 @@ function convertCurency(str) {
     result = (+result * 0, 027) + "$";
   } else {
     result = (+result * 36, 41) + "UAH";
+  }
+}
+//function 9,10
+function randomPassword(length = 8) {
+  let num = "1";
+  for (let i = length; i > 0; i--) {
+    num += "0";
+  }
+  let min = +num.slice(0, -1);
+  let result = Math.round(Math.random().toFixed(length) * (+num - min) + min);
+}
+//function 11
+function deleteLetters(letter, str) {
+  let result = "";
+  for (l in str) {
+    if (str[l] !== letter) {
+      result += str[l];
+    }
+  }
+}
+//function 12
+function isPalyndrom(str) {
+  let result;
+  let original = str.replaceAll(" ", "").toLowerCase();
+  console.log(original);
+  let reverse = Array.from(original).reverse().join();
+  reverse = reverse.replaceAll(",", "");
+  if (original == reverse) {
+    result = true;
+  } else {
+    result = false;
   }
 }
