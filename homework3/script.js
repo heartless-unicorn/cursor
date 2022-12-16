@@ -9,6 +9,7 @@ function getMaxDigits(number) {
   }
   return result;
 }
+
 // Function 2
 function powerFunc(num, pow) {
   let result;
@@ -93,13 +94,7 @@ function randomPassword(length = 8) {
 }
 //function 11
 function deleteLetters(letter, str) {
-  let result = "";
-  str = str.toLowerCase();
-  for (l in str) {
-    if (str[l] !== letter) {
-      result += str[l];
-    }
-  }
+  let result = str.toLowerCase().replaceAll(letter, "");
   return result;
 }
 //function 12
