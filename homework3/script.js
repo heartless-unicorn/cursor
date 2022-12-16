@@ -3,7 +3,7 @@ function getMaxDigits(number) {
   let arr = Array.from(`${number}`);
   let result = 0;
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > arr[i + 1] && arr[i] > result) {
+    if (arr[i] > result) {
       result = arr[i];
     }
   }
@@ -151,7 +151,7 @@ document.writeln(
    )}✨ <br/>
    Function 10: "Я несу гусеня" це палідрон? ✨${isPalyndrom(
      "Я несу гусеня"
-   )}✨  <br/>]
+   )}✨  <br/>
    Function 11: Букви які не повторюються в реченні "Бісквіт був дуже ніжним" ✨${deleteDuplicateLetter(
      "Бісквіт був дуже ніжним"
    )}✨  <br/>
