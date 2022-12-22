@@ -47,7 +47,7 @@ function afterTax(sum) {
 
 // function 5
 function getRandomNumber(n, m) {
-  let result = Math.round(Math.random() * (m - n) + n);
+  let result = Math.round(Math.random() * (m - n + 1) + n);
   return result;
 }
 //function 6
@@ -84,12 +84,10 @@ function convertCurency(str) {
 }
 //function 9,10
 function randomPassword(length = 8) {
-  let num = "1";
-  for (let i = length; i > 0; i--) {
-    num += "0";
+  let result = "";
+  for (let i = 0; i < length; i++) {
+    result = result + getRandomNumber(0, 9);
   }
-  let min = +num.slice(0, -1);
-  let result = Math.round(Math.random().toFixed(length) * (+num - min) + min);
   return result;
 }
 //function 11
