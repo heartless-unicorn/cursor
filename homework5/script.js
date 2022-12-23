@@ -10,8 +10,6 @@ function getModa(...numbers) {
   numbers = numbers.sort();
   let count = 0;
   let result;
-
-  console.log(numbers);
   numbers = numbers.map((value, i, arr) => {
     if (value === numbers[i + 1] && Number.isInteger(value)) {
       let last = arr.lastIndexOf(value);
@@ -21,7 +19,7 @@ function getModa(...numbers) {
       }
     }
   });
-  console.log(result);
+  return result;
 }
 function getAvarage(...numbers) {
   let result = 0;
@@ -33,5 +31,16 @@ function getAvarage(...numbers) {
     return total + current;
   }, 0);
 }
-function getMedian(...numbers) {}
-getModa(2.1, 2.5, 10, 1, 5, 10, 12, 2.5, 1, 4.6, 10, 1);
+function getMedian(...numbers) {
+  numbers = numbers.sort((a, b) => a - b);
+  numbers = numbers.filter((value) => Number.isInteger(value));
+  let result = 0;
+  console.log(numbers);
+  if ((numbers.length / 2) % 2 === 0) {
+    result =
+      (numbers[numbers.length / 2] + numbers[numbers.length / 2 - 1]) / 2;
+  } else {
+    result = numbers[Math.floor(numbers.length / 2)];
+  }
+  return result;
+}
