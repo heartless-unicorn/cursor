@@ -8,6 +8,20 @@ function getRandomArray(length, min, max) {
 }
 function getModa(...numbers) {
   numbers = numbers.sort();
+  let count = 0;
+  let result;
+
+  console.log(numbers);
+  numbers = numbers.map((value, i, arr) => {
+    if (value === numbers[i + 1] && Number.isInteger(value)) {
+      let last = arr.lastIndexOf(value);
+      if (count < last - i) {
+        count = last - i;
+        result = value;
+      }
+    }
+  });
+  console.log(result);
 }
 function getAvarage(...numbers) {
   let result = 0;
@@ -17,9 +31,7 @@ function getAvarage(...numbers) {
       return total;
     }
     return total + current;
-  });
-
-  console.log(result);
+  }, 0);
 }
 function getMedian(...numbers) {}
-getAvarage(1, 2.5, 10, 5.78, 3, -5);
+getModa(2.1, 2.5, 10, 1, 5, 10, 12, 2.5, 1, 4.6, 10, 1);
