@@ -35,7 +35,6 @@ function getMedian(...numbers) {
   numbers = numbers.sort((a, b) => a - b);
   numbers = numbers.filter((value) => Number.isInteger(value));
   let result = 0;
-  console.log(numbers);
   if ((numbers.length / 2) % 2 === 0) {
     result =
       (numbers[numbers.length / 2] + numbers[numbers.length / 2 - 1]) / 2;
@@ -44,3 +43,21 @@ function getMedian(...numbers) {
   }
   return result;
 }
+function filterEvenNumbers(...numbers) {
+  numbers = numbers.filter((value) => value % 2 === 0);
+  return numbers;
+}
+function countPositiveNumbers(...numbers) {
+  let result = 0;
+  numbers.filter((value) => {
+    if (value > 0) {
+      result += 1;
+    }
+  });
+  return result;
+}
+function getDividedByFive(...numbers) {
+  numbers = numbers.filter((value) => value % 5 === 0);
+  return numbers;
+}
+getDividedByFive(55, 55, 50, 12, 10, 4, 5, 67, 333, 56);
