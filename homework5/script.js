@@ -73,5 +73,18 @@ function replaceBadWords(str) {
   });
   return result.join(" ");
 }
-
-console.log(replaceBadWords("It's bullshit!"));
+function divideByThree(str) {
+  let result = [];
+  str = str.toLowerCase();
+  if (str.length > 3) {
+    str = str.replace(" ", "").split("");
+    while (str.length > 0) {
+      result.push(str.slice(0, 3).join(""));
+      str = str.slice(3);
+    }
+    return result;
+  } else {
+    return str;
+  }
+}
+console.log(divideByThree("liv"));
