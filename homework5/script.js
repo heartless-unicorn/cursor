@@ -60,4 +60,18 @@ function getDividedByFive(...numbers) {
   numbers = numbers.filter((value) => value % 5 === 0);
   return numbers;
 }
-getDividedByFive(55, 55, 50, 12, 10, 4, 5, 67, 333, 56);
+function replaceBadWords(str) {
+  const badWords = ["shit", "fuck"];
+  let result = str.split(" ");
+  badWords.forEach((value) => {
+    result = result.map((element) => {
+      if (element.includes(value)) {
+        element = element.replace(`${value}`, "****");
+      }
+      return element;
+    });
+  });
+  return result.join(" ");
+}
+
+console.log(replaceBadWords("It's bullshit!"));
