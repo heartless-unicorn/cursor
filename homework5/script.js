@@ -87,4 +87,30 @@ function divideByThree(str) {
     return str;
   }
 }
-console.log(divideByThree("liv"));
+function generateCombinations(str) {
+  let result = [str];
+  let length = 1;
+  for (let i = 1; i <= str.length; i++) {
+    length = length * i;
+  }
+  let stringArr = Array.from(str);
+  let random = Array(str.length).fill(0);
+  while (length > 1) {
+    for (let i in random) {
+      let randomLetter = Math.round(Math.random() * (stringArr.length - 1));
+      random[i] = stringArr[randomLetter];
+      stringArr.splice(randomLetter, 1);
+    }
+    let randomString = random.join("");
+    if (result.includes(randomString) || randomString == "") {
+      stringArr = Array.from(str);
+      continue;
+    }
+    result.push(randomString);
+    stringArr = Array.from(str);
+    length--;
+  }
+  return result;
+}
+
+generateCombinations("live");
