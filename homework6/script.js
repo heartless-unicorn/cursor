@@ -28,7 +28,7 @@ const students = [
   },
 ];
 
-function getSublect(student) {
+function getSubject(student) {
   let name = Object.keys(student.subjects);
   let result = [];
   for (let n of name) {
@@ -78,6 +78,7 @@ function getBestStudent(obj) {
   return result;
 }
 function calculateWordLetters(str) {
+  str = str.toLowerCase();
   let arr = str.split("");
   let result = arr.reduce((total, current) => {
     total[current] = (total[current] || 0) + 1;
@@ -85,3 +86,17 @@ function calculateWordLetters(str) {
   }, {});
   return result;
 }
+document.writeln(`Список предметів Тані:✨${getSubject(students[0])}✨</br>`);
+document.writeln(
+  `Середня оцінка Тані: ✨${getAverageMark(students[0])}✨</br>`
+);
+document.writeln(
+  `Інфа по Тані:✨${Object.entries(getStudentInfo(students[0]))}✨</br>`
+);
+document.writeln(`Імена студентів: ✨${getStudentsNames(students)}✨</br>`);
+document.writeln(
+  `Найкращі оцінки має студент: ✨${getBestStudent(students)}✨</br>`
+);
+document.writeln(
+  `В слові тест: ✨${Object.entries(calculateWordLetters("тест"))}✨</br>`
+);
