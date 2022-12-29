@@ -66,3 +66,22 @@ function getStudentsNames(obj) {
   }
   return result.sort();
 }
+function getBestStudent(obj) {
+  let result = "";
+  for (value of obj) {
+    let avarage = 0;
+    if (getAverageMark(value) > avarage) {
+      avarage = getAverageMark(value);
+      result = value.name;
+    }
+  }
+  return result;
+}
+function calculateWordLetters(str) {
+  let arr = str.split("");
+  let result = arr.reduce((total, current) => {
+    total[current] = (total[current] || 0) + 1;
+    return total;
+  }, {});
+  return result;
+}
