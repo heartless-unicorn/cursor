@@ -41,5 +41,28 @@ function getSublect(student) {
   }
   return result;
 }
-
-getSublect(students[0]);
+function getAverageMark(student) {
+  let marks = Object.entries(student.subjects);
+  let result = 0;
+  let total = 0;
+  for (m of marks) {
+    let sum = m[1].reduce((total, current) => {
+      return total + current;
+    }, 0);
+    total += m[1].length;
+    result += sum;
+  }
+  result = result / total;
+  return result.toFixed(2);
+}
+function getStudentInfo(student) {
+  let { name, course } = student;
+  return { name, course, avarageMark: +getAverageMark(student) };
+}
+function getStudentsNames(obj) {
+  let result = [];
+  for (value of obj) {
+    result.push(value.name);
+  }
+  return result.sort();
+}
