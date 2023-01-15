@@ -49,3 +49,13 @@ let student2 = new BudgetStudent(
   1,
   "Лариса Косач-Квітка"
 );
+
+console.log(student1);
+console.log(student1.getInfo());
+console.log(student1.mark);
+student1.mark = 5;
+console.log(student1.mark);
+console.log(student1.getAvarageMark());
+student1.dismiss();
+console.log(student1.mark);
+console.log(student2);
