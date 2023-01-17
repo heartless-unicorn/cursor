@@ -20,7 +20,7 @@ document.addEventListener("keydown", (button) => {
 });
 
 function getAudio(name) {
-  const audio = new Audio(`/media/${name}.mp3`);
+  const audio = new Audio(`media/${name}.mp3`);
   return audio;
 }
 
