@@ -1,6 +1,24 @@
-.menu,
-.info {
+body {
+  background-image: url(https://lumiere-a.akamaihd.net/v1/images/star-wars-backgrounds-25_bc15ec98.jpeg);
+  color: white;
+  font-family: "Oswald", sans-serif;
+}
+.hero {
+  padding: 80px 40px;
+}
+.menu {
   display: flex;
+}
+.info {
+  display: none;
+}
+.movie {
+  text-align: center;
+  border: 1px solid white;
+}
+.movie-poster {
+  width: 40%;
+  margin: 20px;
 }
 #back,
 #forward {

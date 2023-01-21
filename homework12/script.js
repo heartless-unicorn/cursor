@@ -1,7 +1,15 @@
 const link = "https://swapi.dev/api/films/";
 const planetLink = "https://swapi.dev/api/planets/?page=1";
-const infoPage = document.getElementById("info");
+const infoPage = document.getElementById("list");
 const menuPage = document.getElementById("menu");
+const moviePosters = {
+  1: "https://m.media-amazon.com/images/M/MV5BYTRhNjcwNWQtMGJmMi00NmQyLWE2YzItODVmMTdjNWI0ZDA2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg",
+  2: "https://m.media-amazon.com/images/M/MV5BMDAzM2M0Y2UtZjRmZi00MzVlLTg4MjEtOTE3NzU5ZDVlMTU5XkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_.jpg",
+  3: "https://m.media-amazon.com/images/M/MV5BNTc4MTc3NTQ5OF5BMl5BanBnXkFtZTcwOTg0NjI4NA@@._V1_.jpg",
+  4: "https://static.posters.cz/image/750/%D0%9F%D0%BB%D0%B0%D0%BA%D0%B0%D1%82%D0%B8/star-wars-a-new-hope-one-sheet-i28733.jpg",
+  5: "https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
+  6: "https://cloud.vistaapps.elcapitantheatre.com/CDN/media/entity/get/FilmPosterGraphic/h-HO00000182",
+};
 let back = document.getElementById("back");
 let next = document.getElementById("next");
 fetch(link)
@@ -31,20 +39,28 @@ function getMovies(response) {
     const number = value.episode_id;
     const title = value.title;
     const date = value.release_date;
-    card.innerHTML = `<h2> ${number}. ${title}</h2>
-        <img href = "..."/> 
-        <h4>Date of relese: ${date}</h4>
+    card.innerHTML = `
+    <div class = "movie">
+        <h2> Episode ${number}. ${title}</h2>
+        <img src = ${moviePosters[number]} class ="img-fluid movie-poster"/> 
+        <h4>Date of release: ${date}</h4>
         <button onclick = "getInfo(${number})">Get Info</button>
+    </ div>
 `;
     menuPage.appendChild(card);
   });
 }
 
 function getInfo(number) {
-  let backButton = document.createElement("div");
-  backButton.innerHTML = `<button onclick = "backToMenu()">Back</button>`;
-  infoPage.before(backButton);
-  fetch(`${link}${number}`)
+  let filmIds = {
+    1: 4,
+    2: 5,
+    3: 6,
+    4: 1,
+    5: 2,
+    6: 3,
+  };
+  fetch(`${link}${filmIds[number]}`)
     .then((response) => {
       return response.json();
     })
@@ -54,10 +70,9 @@ function getInfo(number) {
 }
 
 function getChars(response) {
-  const title = document.createElement("h1");
-  title.innerText = response.title;
-  infoPage.before(title);
+  document.getElementById("title").innerText = response.title;
   let characters = response.characters;
+  let list = document.getElementsByClassName("card");
   characters.forEach((value) => {
     fetch(value)
       .then((response) => {
@@ -71,7 +86,7 @@ function getChars(response) {
 
 function getCharInfo(response) {
   let card = document.createElement("div");
-  card.classList.add("col-3");
+  card.classList.add("col-3", "card");
   const gender = response.gender;
   let icon = "";
   if (gender === "female") {
@@ -84,7 +99,7 @@ function getCharInfo(response) {
     <img href = ".../"/>
     <p>Year of birth: ${response.birth_year}</p>
     <p>Gender: ${icon}</p>`;
-  document.getElementById("info").appendChild(card);
+  infoPage.appendChild(card);
 }
 
 function getPlanets(response) {
@@ -93,8 +108,6 @@ function getPlanets(response) {
     return value.name;
   });
   names.forEach((value, index) => {
-    let planet = document.querySelector(`.planet-${index}`);
-
     let title = document.createElement("div");
     title.classList.add("col-2", `planet-${index}`);
     title.innerText = `${value}`;
@@ -102,11 +115,10 @@ function getPlanets(response) {
   });
   let previous = response.previous;
   let next = response.next;
-  console.log(next);
+
   let buttonBack = document.getElementById("back");
   let buttonNext = document.getElementById("next");
   function setNextPage(link) {
-    console.log(link);
     if (link) {
       fetch(link)
         .then((response) => {
