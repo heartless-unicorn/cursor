@@ -1,0 +1,8 @@
+.menu,
+.info {
+  display: flex;
+}
+#back,
+#forward {
+  display: inline-block;
+}
