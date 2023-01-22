@@ -13,14 +13,127 @@ body {
   display: none;
 }
 .movie {
+  height: 95%;
+  margin: 10px;
   text-align: center;
-  border: 1px solid white;
+  border: 2px solid white;
+  border-radius: 20px;
+  align-items: center;
+  padding: 30px;
+  transition: ease-in-out 0.3s;
+}
+
+.movie:hover {
+  box-shadow: 0 0 5px 5px #126fe0;
+}
+.episode-tittle {
+  color: #ffdf00;
 }
 .movie-poster {
   width: 40%;
   margin: 20px;
 }
+.movie button {
+  background: transparent;
+  color: white;
+  padding: 10px 20px;
+  border: 1px solid white;
+  margin-top: 10px;
+  transition: ease-in-out 0.3s;
+  text-transform: uppercase;
+}
+.movie button:hover {
+  box-shadow: 0 0 5px 5px #c90e10;
+}
+
+.info button {
+  width: 100px;
+  display: inline;
+  background: transparent;
+  color: white;
+  padding: 10px 20px;
+  border: 1px solid white;
+  margin-top: 10px;
+  transition: ease-in-out 0.3s;
+  text-transform: uppercase;
+}
+.info button:hover {
+  box-shadow: 0 0 5px 5px #c90e10;
+}
+.info h1 {
+  font-size: 60px;
+  color: #ffdf00;
+}
+.info-header {
+  margin-bottom: 30px;
+}
+.char-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 10px;
+  transition: ease-in-out 0.3s;
+}
+
+.char-card:hover {
+  box-shadow: 0 0 5px 5px #ffdf00;
+}
+.char-card img {
+  width: 70%;
+  margin-bottom: 10px;
+  align-self: center;
+}
+.char-card h3 {
+  align-self: center;
+}
+.char-card h3::first-letter {
+  color: #ffdf00;
+}
+.char-card p {
+  text-align: left;
+  font-size: 20px;
+}
+.fem {
+  color: #c90e10;
+  font-size: 25px;
+}
+.mask {
+  color: #126fe0;
+  font-size: 25px;
+}
+.planets {
+  margin-top: 20px;
+  padding: 20px;
+}
+.planets h2 {
+  margin-bottom: 20px;
+  color: #ffdf00;
+  font-size: 60px;
+  text-align: center;
+}
+#planets {
+  justify-content: flex-end;
+  font-size: 20px;
+}
+#planets div:nth-child(odd)::first-letter {
+  color: #126fe0;
+}
+#planets div:nth-child(even)::first-letter {
+  color: #c90e10;
+}
 #back,
-#forward {
-  display: inline-block;
+#next {
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 30px;
+}
+#next:hover {
+  text-shadow: 3px 3px 10px #c90e10, -3px -3px 10px #c90e10;
+}
+#back:hover {
+  text-shadow: 3px 3px 10px #126fe0, -3px -3px 10px #126fe0;
 }

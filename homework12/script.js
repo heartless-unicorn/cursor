@@ -12,6 +12,20 @@ const moviePosters = {
 };
 let back = document.getElementById("back");
 let next = document.getElementById("next");
+
+async function fetchImg(name) {
+  await fetch("https://akabab.github.io/starwars-api/api//all.json")
+    .then((response) => {
+      return response.json();
+    })
+    .then((response) => {
+      let character = response.find((val) => val.name === name);
+      if (character.image) {
+        document.getElementById(name).src = character.image;
+      }
+    });
+}
+
 fetch(link)
   .then((response) => {
     return response.json();
@@ -27,8 +41,9 @@ fetch(planetLink)
   });
 
 function backToMenu() {
-  document.getElementById("menu").style.display = "flex";
+  menuPage.style.display = "flex";
   document.getElementById("info").style.display = "none";
+  infoPage.innerHTML = "";
 }
 
 function getMovies(response) {
@@ -41,7 +56,7 @@ function getMovies(response) {
     const date = value.release_date;
     card.innerHTML = `
     <div class = "movie">
-        <h2> Episode ${number}. ${title}</h2>
+        <h2> Episode ${number}.<span class = "episode-tittle"> ${title}</span></h2>
         <img src = ${moviePosters[number]} class ="img-fluid movie-poster"/> 
         <h4>Date of release: ${date}</h4>
         <button onclick = "getInfo(${number})">Get Info</button>
@@ -72,33 +87,38 @@ function getInfo(number) {
 function getChars(response) {
   document.getElementById("title").innerText = response.title;
   let characters = response.characters;
-  let list = document.getElementsByClassName("card");
   characters.forEach((value) => {
     fetch(value)
       .then((response) => {
         return response.json();
       })
       .then((response) => {
-        getCharInfo(response);
+        if (response) {
+          getCharInfo(response);
+        }
       });
   });
 }
 
 function getCharInfo(response) {
   let card = document.createElement("div");
-  card.classList.add("col-3", "card");
+  card.classList.add("col-3", "char-card");
   const gender = response.gender;
   let icon = "";
   if (gender === "female") {
-    icon = "👩";
+    icon = `<i class="fa-solid fa-venus fem"></i>`;
   } else {
-    icon = "👦";
+    icon = `<i class="fa-solid fa-mars mask"></i>`;
   }
+
   card.innerHTML = `
     <h3>${response.name}</h3>
-    <img href = ".../"/>
+    <img src = "" class = "img-fluid char-pic" id = "${response.name}" alt = "character picture" />
+    <div class = "char-info">
     <p>Year of birth: ${response.birth_year}</p>
-    <p>Gender: ${icon}</p>`;
+    <p>Gender: ${icon}</p>
+    </div>`;
+  fetchImg(response.name);
   infoPage.appendChild(card);
 }
 
