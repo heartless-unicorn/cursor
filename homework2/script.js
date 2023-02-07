@@ -19,4 +19,6 @@ for (n; n <= m; n++) {
     result = result + n;
   }
 }
+
 document.writeln(`Your sum = ${result}`);
+export { evenSkip };

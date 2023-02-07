@@ -27,3 +27,5 @@ let result = `Максимальна ціна: ${Math.max(first, second, third)}
                     Чистий прибуток: ${cost - randomDiscount}`;
 
 document.writeln(result);
+export { first };
+св;

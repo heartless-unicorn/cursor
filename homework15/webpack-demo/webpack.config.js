@@ -6,8 +6,6 @@ module.exports = {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
   },
-};
-{
   module: {
     rules: [
       {
@@ -29,6 +27,6 @@ module.exports = {
         test: /\.(png|jpg)$/,
         use: "file-loader",
       },
-    ];
-  }
-}
+    ],
+  },
+};

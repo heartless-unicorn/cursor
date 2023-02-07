@@ -10,8 +10,6 @@ const moviePosters = {
   5: "https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
   6: "https://cloud.vistaapps.elcapitantheatre.com/CDN/media/entity/get/FilmPosterGraphic/h-HO00000182",
 };
-let back = document.getElementById("back");
-let next = document.getElementById("next");
 
 async function fetchImg(name) {
   await fetch("https://akabab.github.io/starwars-api/api//all.json")
@@ -136,8 +134,6 @@ function getPlanets(response) {
   let previous = response.previous;
   let next = response.next;
 
-  let buttonBack = document.getElementById("back");
-  let buttonNext = document.getElementById("next");
   function setNextPage(link) {
     if (link) {
       fetch(link)
@@ -158,10 +154,10 @@ function getPlanets(response) {
         });
     }
   }
-  buttonNext.addEventListener("click", function () {
+  document.getElementById("next").addEventListener("click", function () {
     setNextPage(next);
   });
-  buttonBack.addEventListener("click", function () {
+  document.getElementById("back").addEventListener("click", function () {
     setNextPage(previous);
   });
 }

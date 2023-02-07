@@ -74,7 +74,7 @@ function convertCurency(str) {
     }
   }
   if (currency != "$" && currency.toLowerCase() === "uah") {
-    result = (+result * 0, 027) + "$";
+    result = +result * 0.027 + "$";
   } else if (currency == "$") {
     result = (+result * 36, 41) + "UAH";
   } else {
@@ -150,3 +150,4 @@ document.writeln(
    )}✨  <br/>
 `
 );
+export { randomPassword };
