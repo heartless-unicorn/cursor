@@ -7,6 +7,7 @@ let posts = [
     image:
       "https://images.unsplash.com/photo-1552954877-e96a0f0728c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dGFiYnklMjBjYXR8ZW58MHx8MHx8&w=1000&q=80",
     date: "January 20",
+    hearts: 120,
   },
   {
     name: "Elvis",
@@ -16,6 +17,7 @@ let posts = [
     image:
       "https://media.wired.com/photos/6242576ba288ab4bb7de35ed/1:1/w_1825,h_1825,c_limit/PetFusion-Cat-Scratcher-Lounge-Gear.jpg",
     date: "February 3",
+    hearts: 10,
   },
   {
     name: "Blue",
@@ -25,6 +27,7 @@ let posts = [
     image:
       "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=pexels-pixabay-45201.jpg&fm=jpg",
     date: "February 9",
+    hearts: 34,
   },
   {
     name: "Nugget",
@@ -34,6 +37,7 @@ let posts = [
     image:
       "https://i.etsystatic.com/5376657/r/il/20dcc0/2376505716/il_570xN.2376505716_jkiu.jpg",
     date: "January 15",
+    hearts: 147,
   },
   {
     name: "Moon",
@@ -43,6 +47,7 @@ let posts = [
     image:
       "https://assets3.thrillist.com/v1/image/2911434/792x623/scale;webp=auto;jpeg_quality=60.jpg",
     date: "January 30",
+    hearts: 56,
   },
   {
     name: "Snow",
@@ -52,6 +57,7 @@ let posts = [
     image:
       "https://i.pinimg.com/originals/cb/57/83/cb57837c5c1be346f33b40e2ffd53e9d.jpg",
     date: "February 6",
+    hearts: 478,
   },
 ];
 export { posts };

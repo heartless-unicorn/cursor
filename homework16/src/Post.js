@@ -1,10 +1,6 @@
 import "./Post.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHeart,
-  faShare,
-  faDownload,
-} from "@fortawesome/free-solid-svg-icons";
+
+import Menu from "./Menu";
 
 export default function Post(response) {
   return (
@@ -24,11 +20,7 @@ export default function Post(response) {
       <div className="img-box">
         <img src={response.data.image} alt="Post" className="img-fluid w-50" />
       </div>
-      <div className="menu">
-        <FontAwesomeIcon icon={faHeart} />
-        <FontAwesomeIcon icon={faShare} />
-        <FontAwesomeIcon icon={faDownload} />
-      </div>
+      <Menu count={response.data.hearts} />
     </div>
   );
 }

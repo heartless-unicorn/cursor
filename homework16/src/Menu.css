@@ -1,0 +1,17 @@
+.Menu {
+  padding: 10px;
+  font-size: 20px;
+  margin-top: 10px;
+  color: #6e7f8d;
+  display: flex;
+  justify-content: space-around;
+}
+.button {
+  transition: all 0.3s ease-in;
+}
+.button:hover {
+  color: rgb(255, 135, 179);
+}
+.liked {
+  color: rgb(253, 0, 93);
+}
